@@ -1,0 +1,8 @@
+body,
+html {
+  background: #222222;
+}
+#c {
+  display: block;
+  margin: auto;
+}

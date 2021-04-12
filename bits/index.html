@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bit Patterns!</title>
+</head>
+<body>
+    <canvas id="c" width="1024" height="1024">
+        <script>
+          const context = c.getContext('2d');
+          context.fillStyle = "#dddddd";
+          const randInt = Math.floor(Math.random()*256);
+          const switcher = Math.floor(Math.random()*4);
+          console.log(switcher);
+          switch (switcher){
+            case 0:
+            for (let x = 0; x < 256; x++) {
+              for (let y = 0; y < 256; y++) {
+                if ((x * y) & randInt) {
+                  context.fillRect(x*4, y*4, 4, 4);
+                }
+              }
+            }
+            break;
+            case 1:
+            for (let x = 0; x < 256; x++) {
+              for (let y = 0; y < 256; y++) {
+                if ((x ^ y) % randInt) {
+                  context.fillRect(x*4, y*4, 4, 4);
+                }
+              }
+            }
+            break;
+            case 2:
+            for (let x = 0; x < 256; x++) {
+              for (let y = 0; y < 256; y++) {
+                if ((x ^ y) < randInt) {
+                  context.fillRect(x*4, y*4, 4, 4);
+                }
+              }
+            }
+            break;
+            case 3:
+            for (let x = 0; x < 256; x++) {
+              for (let y = 0; y < 256; y++) {
+                if ((x | y) % randInt) {
+                  context.fillRect(x*4, y*4, 4, 4);
+                }
+              }
+            }
+            break;
+
+
+          }
+        </script>
+</body>
+</html>
